@@ -36,6 +36,7 @@ if __name__ == '__main__':
             except _lzma.LZMAError as e:
                 if e.__str__() == 'Corrupt input data':
                     print(f'incorrect password \'{password}\'')
+                    input('Press Enter to exit')
                     sys.exit(1)
                 else:
                     raise e
@@ -50,3 +51,4 @@ if __name__ == '__main__':
             send2trash(tar_path)
 
     print('done')
+    input('Press Enter to exit')
