@@ -73,10 +73,13 @@ if __name__ == '__main__':
             print(message_source.move_to_trash.format(str(path)))
             send2trash(path)
 
-    password = input('\n\n' + message_source.input_password)
+    password = None
 
     for path in Path(cwd).iterdir():
         if path.is_file() and path.suffix == '.7z':
+            if password is None:
+                password = input('\n' + message_source.input_password)
+
             print(message_source.extract_7z.format(str(path)))
 
             seven_zip_file = None
