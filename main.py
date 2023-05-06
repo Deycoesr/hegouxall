@@ -21,7 +21,7 @@ class MessageSource:
     input_password: str
 
 
-message_sources = {
+MESSAGE_SOURCES = {
     'en': MessageSource(
         'start', 'extract tar file: {}', 'move to trash: {}', 'extract 7z file: {}', 'incorrect password \'{}\'',
         'done', 'Press Enter to exit...', 'password: '
@@ -37,13 +37,13 @@ def determine_message_source(default_region='en'):
     try:
         region_code = locale.getdefaultlocale()[0]
         region = region_code[0:region_code.index('_')]
-        __message_source = message_sources.get(region)
+        __message_source = MESSAGE_SOURCES.get(region)
         if __message_source is not None:
             return __message_source
     except ValueError:
         print('use default region: ' + default_region)
 
-    return message_sources.get(default_region)
+    return MESSAGE_SOURCES.get(default_region)
 
 
 if __name__ == '__main__':
