@@ -26,7 +26,7 @@ message_sources = {
         'start', 'extract tar file: {}', 'move to trash: {}', 'extract 7z file: {}', 'incorrect password \'{}\'',
         'done', 'Press Enter to exit...', 'password: '
     ),
-    "zh": MessageSource(
+    'zh': MessageSource(
         '开始', '解压 tar 文件: {}', '移动到回收站: {}', '解压 7z 文件: {}', '错误的密码 \'{}\'',
         '完成', '按回车键退出程序...', '密码: '
     )
@@ -41,7 +41,7 @@ def determine_message_source(default_region='en'):
         if __message_source is not None:
             return __message_source
     except ValueError:
-        print("use default region: " + default_region)
+        print('use default region: ' + default_region)
 
     return message_sources.get(default_region)
 
