@@ -1,4 +1,5 @@
 import _lzma
+from dataclasses import dataclass
 import locale
 import os
 import sys
@@ -8,6 +9,7 @@ from pathlib import Path
 from send2trash import send2trash
 
 
+@dataclass
 class MessageSource:
     start: str
     extract_tar: str
@@ -17,19 +19,6 @@ class MessageSource:
     done: str
     press_enter_to_exit: str
     input_password: str
-
-    def __init__(
-            self, start: str, extract_tar: str, move_to_trash: str, extract_7z: str, incorrect_password: str,
-            done: str, press_enter_to_exit: str, input_password: str
-    ):
-        self.start = start
-        self.extract_tar = extract_tar
-        self.move_to_trash = move_to_trash
-        self.extract_7z = extract_7z
-        self.incorrect_password = incorrect_password
-        self.done = done
-        self.press_enter_to_exit = press_enter_to_exit
-        self.input_password = input_password
 
 
 message_sources = {
